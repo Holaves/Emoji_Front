@@ -1,0 +1,139 @@
+// Переменные для базовых настроек
+$font-base-size: 16px;
+$font-large-size: 18px;
+$font-small-size: 14px;
+$font-extra-small-size: 12px;
+
+$h1-base-size: 32px;
+$h1-large-size: 36px;
+$h1-small-size: 28px;
+$h1-extra-small-size: 24px;
+
+$h2-base-size: 24px;
+$h2-large-size: 28px;
+$h2-small-size: 20px;
+$h2-extra-small-size: 18px;
+
+$p-line-height: 1.8;
+$p-margin-bottom: 16px;
+
+$line-height-body: 1.6;
+$line-height-heading: 1.2;
+$line-height-subheading: 1.4;
+
+$color-text: #333;
+$color-heading: #111;
+$color-subheading: #222;
+
+// Основные стили
+ 
+
+  .privacy_h1 {
+    font-size: $h1-base-size;
+    line-height: $line-height-heading;
+    font-weight: bold;
+    color: $color-heading;
+    margin-bottom: 20px;
+    font-family: Comfortaa;
+  }
+
+  .privacy_h2 {
+    font-size: $h2-base-size;
+    line-height: $line-height-subheading;
+    font-weight: semi-bold;
+    color: $color-subheading;
+    font-family: Comfortaa;
+    margin-bottom: 15px;
+    margin-top: 40px;
+    padding-bottom: 20px;
+  }
+
+  .privacy_h3 {
+    font-size: $font-base-size;
+    line-height: $p-line-height;
+    color: $color-text;
+    font-family: Comfortaa;
+    margin-bottom: $p-margin-bottom;
+  }
+  
+
+  .privacy_p, .privacy_h3 {
+    font-size: $font-base-size;
+    line-height: $p-line-height;
+    color: $color-text;
+    font-family: Comfortaa;
+    margin-bottom: $p-margin-bottom;
+  }
+  .privacy_h3{
+    font-weight: 200;
+    padding-bottom: 20px;
+  }
+  .privacy_p{
+    margin-left: 50px;
+  }
+
+// Медиазапросы
+@mixin responsive-font($screen-size, $body-size, $h1-size, $h2-size, $p-size) {
+  @media (max-width: $screen-size) {
+
+      .privacy_h1 {
+        font-size: $h1-size;
+      }
+
+      .privacy_h2 {
+        font-size: $h2-size;
+      }
+
+      .privacy_p, .privacy_h3 {
+        font-size: $p-size;
+      }
+    }
+  }
+
+// Применение миксина
+@include responsive-font(768px, $font-small-size, $h1-small-size, $h2-small-size, $font-small-size);
+@include responsive-font(480px, $font-extra-small-size, $h1-extra-small-size, $h2-extra-small-size, $font-extra-small-size);
+
+@media (min-width: 1200px) {
+
+    .privacy_h1 {
+      font-size: $h1-large-size;
+    }
+
+    .privacy_h2 {
+      font-size: $h2-large-size;
+    }
+
+    .privacy_p, .privacy_h3 {
+      font-size: $font-large-size;
+    }
+  }
+
+  .privacy_table{
+    border: 1px solid black;
+    border-collapse: collapse;
+    tbody{
+        tr{
+            td{
+                padding: 10px;
+                border:1px solid black;
+                
+                font-size: $font-base-size;
+                line-height: $p-line-height;
+                color: $color-text;
+                font-family: Comfortaa;
+                margin-bottom: $p-margin-bottom;
+                ul{
+                    margin-left: 20px;
+                    li{
+                        font-size: $font-base-size;
+                        line-height: $p-line-height;
+                        color: $color-text;
+                        font-family: Comfortaa;
+                        margin-bottom: $p-margin-bottom;
+                    }
+                }
+            }
+        }
+    }
+  }

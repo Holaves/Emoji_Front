@@ -1,0 +1,47 @@
+.swiperItem{
+    width: 48vw;
+    height: 23vw;
+    opacity: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    position: relative;
+    border-radius: 15px;
+    img{
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+        object-position: center center;
+        border-radius: 15px;
+
+    }
+    button{
+        position: absolute;
+        height: 70px;
+        width: 200px;
+        top: 0px;
+        right: 0px;
+        opacity: 1;
+        cursor: pointer;
+        border-bottom-left-radius: 20px;
+        display: flex;
+        border: 3px solid white;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(240, 248, 255, 0);
+        color: rgb(255, 255, 255);
+        font-family: Comfortaa;
+        font-size: 20px;
+        font-weight: 700;
+        line-height: -1px;
+        letter-spacing: 0px;
+        transition: all 0.2s;
+        &:hover{
+            background-color: aliceblue;
+            color: black;
+            transition: all 0.2s;
+        }
+
+    }
+}

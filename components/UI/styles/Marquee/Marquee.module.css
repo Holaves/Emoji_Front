@@ -1,0 +1,39 @@
+@charset "UTF-8";
+.marquee {
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  width: 100%;
+  background: rgba(158, 158, 158, 0.13);
+  height: 74px;
+  padding: 10px 0;
+}
+
+.track {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: scroll linear infinite;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0); /* Начинаем за пределами экрана справа */
+  }
+  100% {
+    transform: translateX(-100%); /* Уходим за пределы экрана слева */
+  }
+}
+.track span {
+  display: inline-block;
+  padding-right: 2rem; /* Расстояние между словами */
+  color: rgb(255, 100, 0);
+  font-family: Comfortaa;
+  font-size: 48px;
+  font-weight: 400;
+  padding-bottom: 10px;
+}
+@media (max-width: 1440px) {
+  .track span {
+    font-size: 40px;
+  }
+}/*# sourceMappingURL=Marquee.module.css.map */

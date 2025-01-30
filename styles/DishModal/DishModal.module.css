@@ -1,0 +1,142 @@
+.dishModal {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 40px;
+}
+@media (max-width: 740px) {
+  .dishModal {
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 20px;
+  }
+}
+.dishModal_image {
+  max-width: 60%;
+  width: 100%;
+}
+@media (max-width: 1000px) {
+  .dishModal_image {
+    max-width: 50%;
+  }
+}
+@media (max-width: 740px) {
+  .dishModal_image {
+    max-width: 100%;
+  }
+}
+.dishModal_image img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center center;
+     object-position: center center;
+  width: 100%;
+  height: 100%;
+}
+@media (max-width: 740px) {
+  .dishModal_image img {
+    height: 265px;
+  }
+}
+.dishModal_main {
+  margin-top: 75px;
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  margin-left: 82px;
+}
+@media (max-width: 1440px) {
+  .dishModal_main {
+    margin-left: 20px;
+  }
+}
+@media (max-width: 740px) {
+  .dishModal_main {
+    width: 100%;
+    margin-top: 15px;
+    margin-left: 0px;
+  }
+}
+.dishModal_main_title h1 {
+  color: rgb(0, 0, 0);
+  font-family: Inter;
+  font-size: 72px;
+  font-weight: 600;
+}
+@media (max-width: 1440px) {
+  .dishModal_main_title h1 {
+    font-size: 50px;
+  }
+}
+@media (max-width: 1000px) {
+  .dishModal_main_title h1 {
+    font-size: 38px;
+  }
+}
+@media (max-width: 500px) {
+  .dishModal_main_title h1 {
+    font-size: 26px;
+  }
+}
+.dishModal_main_description {
+  margin-top: 50px;
+}
+@media (max-width: 1000px) {
+  .dishModal_main_description {
+    margin-top: 30px;
+  }
+}
+@media (max-width: 500px) {
+  .dishModal_main_description {
+    margin-top: 10px;
+  }
+}
+.dishModal_main_subTitle {
+  color: rgb(255, 100, 0);
+  font-family: Comfortaa;
+  font-size: 16px;
+  font-weight: 400;
+}
+@media (max-width: 1000px) {
+  .dishModal_main_subTitle {
+    font-size: 12px;
+  }
+}
+@media (max-width: 500px) {
+  .dishModal_main_subTitle {
+    font-size: 8px;
+  }
+}
+.dishModal_main_text {
+  margin-top: 21px;
+  color: rgb(98, 98, 98);
+  font-family: Comfortaa;
+  font-size: 20px;
+  font-weight: 400;
+  max-width: 288px;
+  max-width: 90%;
+  overflow: hidden;
+}
+@media (max-width: 1000px) {
+  .dishModal_main_text {
+    margin-top: 15px;
+    font-size: 16px;
+  }
+}
+@media (max-width: 500px) {
+  .dishModal_main_text {
+    font-size: 12px;
+  }
+}
+@media (max-width: 500px) {
+  .dishModal_main_text {
+    margin-top: 10px;
+  }
+}
+.dishModal_main_weight {
+  margin-top: 21px;
+}
+@media (max-width: 1000px) {
+  .dishModal_main_weight {
+    margin-top: 15px;
+  }
+}/*# sourceMappingURL=DishModal.module.css.map */

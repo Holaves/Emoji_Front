@@ -1,0 +1,22 @@
+.Title {
+  font-family: Inter;
+  font-size: 48px;
+  font-weight: 600;
+  color: #fc0429;
+  margin-left: 70px;
+}
+@media (max-width: 1440px) {
+  .Title {
+    font-size: 40px;
+  }
+}
+@media (max-width: 940px) {
+  .Title {
+    margin-left: 4vw;
+    font-size: 36px;
+  }
+}
+
+.orangeText {
+  color: #fc0429;
+}/*# sourceMappingURL=title.module.css.map */

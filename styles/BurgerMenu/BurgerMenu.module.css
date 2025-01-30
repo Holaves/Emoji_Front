@@ -1,0 +1,33 @@
+@charset "UTF-8";
+.BurgerMenu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #FFFFFF;
+  top: 91px;
+  z-index: 1000;
+  -webkit-backdrop-filter: blur(8px);
+          backdrop-filter: blur(8px); /* Эффект размытия */
+  overflow-y: scroll;
+}
+.BurgerMenu_wrapper {
+  width: 100%;
+}
+.BurgerMenu_wrapper ul {
+  list-style: none;
+  width: 100%;
+  padding-left: 0px;
+}
+.BurgerMenu_wrapper ul li {
+  width: 100%;
+  padding: 19px 28px;
+  color: rgb(0, 0, 0);
+  font-family: Comfortaa;
+  font-size: 18px;
+  cursor: pointer;
+  font-weight: 400;
+  line-height: 27px;
+  box-shadow: 0px 1px 0px 0px rgb(239, 239, 239);
+}/*# sourceMappingURL=BurgerMenu.module.css.map */
