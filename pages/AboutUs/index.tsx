@@ -8,6 +8,10 @@ import { useTypedSelector } from '@/hooks/useTypedSelector';
 import { NextThunkDispatch, wrapper } from '@/store';
 import { fetchCategories } from '@/store/actions-creators/categoria';
 
+import dynamic from 'next/dynamic'
+ 
+
+
 const Index = () => {
    const { stocks, error } = useTypedSelector(state => state.stock || { stocks: [], error: '' });
      const { categories } = useTypedSelector(state => state.categoria || { categories: [], error: '' });
@@ -18,9 +22,9 @@ const Index = () => {
 
                 <MainContainer>
                     <div style={{paddingTop: '150px'}}>
-                    <h2 className={styles.titleAbout}>Кафе Эмодзи 😋 приветствует Вас!</h2>
+                    <h2 className={styles.titleAbout}>Кафе Эмодзи  приветствует Вас!</h2>
                     <h3 className={styles.textAbout}>
-                    В нашем заведении вы можете вкусно и не дорого покушать Японскую и Итальянскую кухню 😋😋😋<br></br>
+                    В нашем заведении вы можете вкусно и не дорого покушать Японскую и Итальянскую кухню<br></br>
                     Мы можем предложить вам:<br></br>
                     <ul className={styles.aboutList}>
                         <li>Роллы</li>
@@ -32,7 +36,7 @@ const Index = () => {
                         <li>Пасту</li>
                         <li>Десерты</li>
                     </ul>
-                    У нас вы никогда не останетесь голодные 😘<br></br>
+                    У нас вы никогда не останетесь голодные <br></br>
                     Мы стараемся для вас !
                     </h3>
                     </div>
