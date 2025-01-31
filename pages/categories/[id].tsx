@@ -8,7 +8,7 @@ import { NextThunkDispatch, wrapper } from '@/store';
 import { fetchCategories } from '@/store/actions-creators/categoria';
 import { ICategoria } from '@/types/categoria';
 import axios, { AxiosResponse } from 'axios';
-import { GetServerSideProps } from 'next';
+import { GetServerSideProps, GetStaticPaths } from 'next';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 
@@ -45,15 +45,35 @@ const CategoriaPage = ({ serverCategoria }: { serverCategoria: ICategoria }) => 
 
 export default CategoriaPage;
 
+export const getStaticPaths: GetStaticPaths = async () => {
+  try {
+    // Запрашиваем список категорий
+    const response = await axios.get(`${AppURL}/categories`);
+    const categories = response.data;
+
+    // Генерируем пути
+    const paths = categories.map((category: { id: string }) => ({
+      params: { id: category.id.toString() },
+    }));
+
+    return {
+      paths,
+      fallback: false, // Позволяет серверу обрабатывать новые пути
+    };
+  } catch (error) {
+    console.error('Ошибка при получении категорий:', error);
+    return { paths: [], fallback: false }; // Остановка, если запрос не удался
+  }
+};
+
 export const getStaticProps = wrapper.getStaticProps(
   (store) => async ({ params }) => {
     const dispatch = store.dispatch as NextThunkDispatch;
-
     let serverCategoria = null;
 
     try {
       if (params?.id) {
-        const response: AxiosResponse = await axios.get(`${AppURL}/categories/${params.id}`);
+        const response = await axios.get(`${AppURL}/categories/${params.id}`);
         serverCategoria = response.data;
       }
 
@@ -66,6 +86,7 @@ export const getStaticProps = wrapper.getStaticProps(
       props: {
         serverCategoria,
       },
+      revalidate: 60, // Данные обновляются раз в 60 секунд
     };
   }
 );

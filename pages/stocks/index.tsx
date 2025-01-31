@@ -1,7 +1,7 @@
 import MainLayout, { AppURL } from '@/layouts/MainLayout';
 import { IStock } from '@/types/stock';
 import axios, { AxiosResponse } from 'axios';
-import { GetServerSideProps } from 'next';
+import { GetServerSideProps, GetStaticProps } from 'next';
 import React, { useState } from 'react';
 import styles from '../../styles/StocksPage/StocksPage.module.scss'
 import HeaderMain from '@/components/HeaderMain';
@@ -40,18 +40,23 @@ const Index = ({serverStocks}) => {
 
 export default Index;
 
-export const getServerSideProps: GetServerSideProps = async () => {
-    if(true){
-        const response: AxiosResponse = await axios.get(`${AppURL}/ads/`)
+
+
+export const getStaticProps: GetStaticProps = async () => {
+    try {
+        const response = await axios.get(`${AppURL}/ads/`);
         return {
             props: {
-                serverStocks: response.data
-            }
-        }
+                serverStocks: response.data 
+            },
+        };
+    } catch (error) {
+        console.error('Ошибка при получении данных о рекламных акциях:', error);
+
+        return {
+            props: {
+                serverStocks: null,
+            },
+        };
     }
-    return {
-        props: {
-            serverStocks: null
-        }
-    }
-}
+};
