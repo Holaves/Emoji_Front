@@ -45,10 +45,6 @@ const Index = () => {
     useEffect(() => {
         checkAdmin()
     }, [])
-    if(!isAdmin)
-        return (
-            <h1>403 Forbidden</h1>
-        )
    return(
        <div className={styles.AdminPanel}>
             <div className={styles.AdminPanel_title}>Админ панель</div>
