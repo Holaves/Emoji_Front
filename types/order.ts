@@ -10,6 +10,7 @@ export interface IOrder {
     createdAt: Date;
     status: 'waiting' | 'inWay' | 'complete';
     fullPrice: number;
+    dateTime: string;
 }
 
 export interface OrderState {
