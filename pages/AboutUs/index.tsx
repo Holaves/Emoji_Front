@@ -8,7 +8,6 @@ import { useTypedSelector } from '@/hooks/useTypedSelector';
 import { NextThunkDispatch, wrapper } from '@/store';
 import { fetchCategories } from '@/store/actions-creators/categoria';
 
-import dynamic from 'next/dynamic'
  
 
 
@@ -46,10 +45,9 @@ const Index = () => {
    );
 };
 
-export const getServerSideProps = wrapper.getServerSideProps(store => async () => {
+export const getStaticProps = wrapper.getStaticProps(store => async () => {
   const dispatch = store.dispatch as NextThunkDispatch;
 
-  
   try {
     await dispatch(fetchCategories());
   } catch (error) {

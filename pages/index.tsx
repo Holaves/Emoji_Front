@@ -71,7 +71,7 @@ const Index = () => {
             name="description"
             content="Кафе Эмодзи в Темрюке предлагает блюда японской и итальянской кухни. Доставка, самовывоз и возможность поесть в кафе. Попробуйте роллы, пиццы, пасты и многое другое!"
           />
-          <link rel="icon" href="/assets/fav.ico" />
+          <link rel="icon" href="" />
           <meta
             name="keywords"
             content="Эмодзи, кафе Темрюк, японская кухня, итальянская кухня, доставка еды, самовывоз, роллы, пиццы, пасты, сеты, супы, салаты, напитки"
@@ -81,7 +81,7 @@ const Index = () => {
             property="og:description"
             content="Доставка и самовывоз блюд японской и итальянской кухни. Попробуйте наши роллы, пиццы и пасты в кафе Эмодзи в Темрюке!"
           />
-          <meta property="og:image" content="../assets/images/logo_vk.jpg" />
+          <meta property="og:image" content="" />
           <meta property="og:url" content="https://3a17-176-110-129-80.ngrok-free.app/" />
           <link rel="canonical" href="https://3a17-176-110-129-80.ngrok-free.app/" />
         </Head>
@@ -98,20 +98,18 @@ const Index = () => {
 
 export default Index;
 
-export const getStaticProps = async () => {
+export const getStaticProps = wrapper.getStaticProps(store => async () => {
+  const dispatch = store.dispatch as NextThunkDispatch;
+
   try {
-    const stocks = await fetchStocks();
-    const categories = await fetchCategories();
-
-    return {
-      props: {
-        stocks: JSON.parse(JSON.stringify(stocks)),
-        categories: JSON.parse(JSON.stringify(categories)),
-      },
-    };
+    await dispatch(fetchStocks());
   } catch (error) {
-    console.error('Failed to fetch data:', error);
-    return { props: { stocks: [], categories: [], error: 'Ошибка загрузки данных' } };
+    console.error('Failed to fetch stocks:', error);
   }
-};
-
+  try {
+    await dispatch(fetchCategories());
+  } catch (error) {
+    console.error('Failed to fetch categories:', error);
+  }
+  return { props: {} };
+});

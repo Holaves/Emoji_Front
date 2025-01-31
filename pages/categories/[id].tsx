@@ -45,7 +45,7 @@ const CategoriaPage = ({ serverCategoria }: { serverCategoria: ICategoria }) => 
 
 export default CategoriaPage;
 
-export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps(
+export const getStaticProps = wrapper.getStaticProps(
   (store) => async ({ params }) => {
     const dispatch = store.dispatch as NextThunkDispatch;
 
