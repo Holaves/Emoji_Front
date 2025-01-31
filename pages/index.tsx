@@ -62,8 +62,9 @@ const Index = () => {
   }
 
   return (
-    <div style={{ paddingTop: width > 700 ? '100px' : '15px' }}>
-      <MainLayout>
+   
+   <div style={{ paddingTop: width > 700 ? '100px' : '15px' }}>
+       <MainLayout>
         <Head>
           <title>Эмодзи | Кафе японской и итальянской кухни в Темрюке</title>
           <meta
@@ -90,25 +91,27 @@ const Index = () => {
         <div ref={targetRef}>
           <DishesCategoriesList categories={categories} />
         </div>
-      </MainLayout>
-    </div>
+      </MainLayout> 
+      </div>
   );
 };
 
 export default Index;
 
-export const getServerSideProps = wrapper.getServerSideProps(store => async () => {
-  const dispatch = store.dispatch as NextThunkDispatch;
+export const getStaticProps = async () => {
+  try {
+    const stocks = await fetchStocks();
+    const categories = await fetchCategories();
 
-  try {
-    await dispatch(fetchStocks());
+    return {
+      props: {
+        stocks: JSON.parse(JSON.stringify(stocks)),
+        categories: JSON.parse(JSON.stringify(categories)),
+      },
+    };
   } catch (error) {
-    console.error('Failed to fetch stocks:', error);
+    console.error('Failed to fetch data:', error);
+    return { props: { stocks: [], categories: [], error: 'Ошибка загрузки данных' } };
   }
-  try {
-    await dispatch(fetchCategories());
-  } catch (error) {
-    console.error('Failed to fetch categories:', error);
-  }
-  return { props: {} };
-});
+};
+
