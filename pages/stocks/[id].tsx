@@ -56,18 +56,17 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     try {
         if (params?.id) {
             const response = await axios.get(`${AppURL}/ads/${params.id}`);
+            console.log(response)
             return {
                 props: {
                     serverStock: response.data || null, // Гарантия, что не будет `undefined`
                 },
-                revalidate: 60, // Обновление данных раз в 60 секунд
             };
         }
         return {
             props: {
                 serverStock: null, // Если нет `params.id`
             },
-            revalidate: 60,
         };
     } catch (error) {
         console.error('Ошибка при получении данных о рекламной акции:', error);
@@ -75,7 +74,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
             props: {
                 serverStock: null, // Возвращаем `null` в случае ошибки
             },
-            revalidate: 60,
         };
     }
 };

@@ -43,7 +43,7 @@ const Index = () => {
         setSelectType(selectTypeInput)
     }
     useEffect(() => {
-        checkAdmin()
+        // checkAdmin()
     }, [])
    return(
        <div className={styles.AdminPanel}>
