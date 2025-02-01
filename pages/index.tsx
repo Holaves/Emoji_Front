@@ -1,7 +1,7 @@
 // import ContainerB from '@/components/ContainerB';
 import SwiperComp from '@/components/SwiperComp';
 import HeaderMain from '../components/HeaderMain';
-import MainLayout from '../layouts/MainLayout';
+import MainLayout, { AppURL } from '../layouts/MainLayout';
 import { NextThunkDispatch, wrapper } from '@/store';
 import { fetchStocks } from '@/store/actions-creators/stock';
 import { useDispatch } from 'react-redux';
@@ -14,21 +14,58 @@ import { useRouter } from 'next/router';
 import Footer from '@/components/Footer';
 import CategoriesHeader from '@/components/CategoriesHeader';
 import Head from 'next/head';
+import { IStock } from '@/types/stock';
+import { ICategoria } from '@/types/categoria';
 
 const Index = () => {
-  const { stocks, error } = useTypedSelector(state => state.stock || { stocks: [], error: '' });
-  const { categories } = useTypedSelector(state => state.categoria || { categories: [], error: '' });
+  const [stocks, setStocks] = useState <IStock[]>([])
+  const [categories, setCategories] = useState <ICategoria[]>([])
+  // const { stocks, error } = useTypedSelector(state => state.stock || { stocks: [], error: '' });
+  // const { categories } = useTypedSelector(state => state.categoria || { categories: [], error: '' });
 
   const [width, setWidth] = useState <number>(1440) 
   const [isAtTop, setIsAtTop] = useState(false);
   const targetRef = useRef<HTMLDivElement>(null);
 
-  console.log(stocks);
-  console.log(error);
+  const fetchStocks = async () => {
+      try{
+          const response = await fetch(`${AppURL}/ads/`, {
+              method: 'GET'
+          });
+
+          if (!response.ok) {
+              const error = await response.json();
+              throw new Error(error.message || "Ошибка при удалении.");
+          }
+
+          const data = await response.json();
+          setStocks(data);
+      }
+      catch (error) {
+          console.error("Ошибка при удалении:", error);
+      }
+      try{
+        const response = await fetch(`${AppURL}/categories/`, {
+            method: 'GET'
+        });
+
+        if (!response.ok) {
+            const error = await response.json();
+            throw new Error(error.message || "Ошибка при удалении.");
+        }
+
+        const data = await response.json();
+        setCategories(data);
+    }
+    catch (error) {
+        console.error("Ошибка при удалении:", error);
+    }
+  } 
+  useEffect(() => {
+    fetchStocks()
+  }, [])
 
   const router = useRouter();
-
- 
 
   const handleScroll = () => {
     if (targetRef.current) {
@@ -53,13 +90,6 @@ const Index = () => {
   
       }, [])
 
-  if (error) {
-    return (
-      <MainLayout>
-        <h1>{error}</h1>
-      </MainLayout>
-    );
-  }
 
   return (
    
@@ -98,18 +128,4 @@ const Index = () => {
 
 export default Index;
 
-export const getStaticProps = wrapper.getStaticProps(store => async () => {
-  const dispatch = store.dispatch as NextThunkDispatch;
 
-  try {
-    await dispatch(fetchStocks());
-  } catch (error) {
-    console.error('Failed to fetch stocks:', error);
-  }
-  try {
-    await dispatch(fetchCategories());
-  } catch (error) {
-    console.error('Failed to fetch categories:', error);
-  }
-  return { props: {} };
-});

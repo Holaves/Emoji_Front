@@ -25,13 +25,11 @@ const Index = ({}) => {
 
             const data = await response.json();
             setStocks(data);
-            alert("Категория успешно удалена.");
         }
        
          catch (error) {
             console.error("Ошибка при удалении:", error);
             //@ts-ignore
-            alert(`Ошибка: ${error.message}`);
         }
     } 
     useEffect(() => {
