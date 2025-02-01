@@ -34,16 +34,16 @@ export const getStaticPaths: GetStaticPaths = async () => {
         const response = await axios.get(`${AppURL}/ads/`);
         const ads = response.data || [];
 
-        const paths = ads.map((ad: { id: string }) => ({
-            params: { id: ad.id.toString() },
+        const paths = ads.map((ad: { _id: string }) => ({
+            params: { id: String(ad._id) }, // Используем _id вместо id
         }));
 
         return {
             paths,
-            fallback: false, // 
+            fallback: false, // Динамическая подгрузка новых страниц
         };
     } catch (error) {
-        console.error('Ошибка при получении списка рекламных акций:', error);
+        console.error('❌ Ошибка при получении списка акций:', error);
         return {
             paths: [],
             fallback: false,
@@ -53,27 +53,23 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
+    console.log("Params в getStaticProps:", params);
+
     try {
-        if (params?.id) {
-            const response = await axios.get(`${AppURL}/ads/${params.id}`);
-            console.log(response)
-            return {
-                props: {
-                    serverStock: response.data || null, // Гарантия, что не будет `undefined`
-                },
-            };
+        const stockId = params?.id ? String(params.id) : null;
+
+        if (!stockId) {
+            return { props: { serverStock: null } };
         }
+
+        const response = await axios.get(`${AppURL}/ads/${stockId}`);
         return {
             props: {
-                serverStock: null, // Если нет `params.id`
+                serverStock: response.data || null,
             },
         };
     } catch (error) {
-        console.error('Ошибка при получении данных о рекламной акции:', error);
-        return {
-            props: {
-                serverStock: null, // Возвращаем `null` в случае ошибки
-            },
-        };
+        console.error('Ошибка при получении данных:', error);
+        return { props: { serverStock: null } };
     }
 };

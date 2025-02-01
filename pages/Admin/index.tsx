@@ -47,7 +47,7 @@ const Index = () => {
     }, [])
    return(
        <div className={styles.AdminPanel}>
-            <div className={styles.AdminPanel_title}>Админ панель</div>
+            {/* <div className={styles.AdminPanel_title}>Админ панель</div>
             <div className={styles.AdminPanel_selectType}>
                 <ul>
                     <li className={selectType == 'Dishes' ? styles.activeLi : ''} onClick={() => onClickHandler('Dishes')}>
@@ -76,7 +76,7 @@ const Index = () => {
                     <AdminStocks/> : selectType == 'Orders' ?
                     <AdminOrders/> : <></>
                 }
-            </div>
+            </div> */}
        </div>
    );
 };
