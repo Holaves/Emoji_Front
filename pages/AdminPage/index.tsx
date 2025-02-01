@@ -10,10 +10,10 @@ import AdminOrders from '@/components/AdminOrders';
 const Index = () => {
     const [selectType, setSelectType] = useState('Dishes')
     const [isAdmin, setIsAdmin] = useState <boolean>(false)    
-    
+    const onClickHandler = (type: string) => setSelectType(type)
    return(
        <div className={styles.AdminPanel}>
-            {/* <div className={styles.AdminPanel_title}>Админ панель</div>
+            <div className={styles.AdminPanel_title}>Админ панель</div>
             <div className={styles.AdminPanel_selectType}>
                 <ul>
                     <li className={selectType == 'Dishes' ? styles.activeLi : ''} onClick={() => onClickHandler('Dishes')}>
@@ -42,7 +42,7 @@ const Index = () => {
                     <AdminStocks/> : selectType == 'Orders' ?
                     <AdminOrders/> : <></>
                 }
-            </div> */}
+            </div>
        </div>
    );
 };

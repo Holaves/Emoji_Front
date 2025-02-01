@@ -36,6 +36,7 @@ const Footer:FC = () => {
                         <ul className={styles.Footer_list}>
                             <li className={styles.Footer_subTitle}>Правовая информация</li>
                             <li onClick={() => router.push('/privacy')}>Политика конфиденциальности</li>
+                            <li onClick={() => router.push('/AdminPage')}>Администраторам</li>
                         </ul>
                     </Col>
                     <Col>
