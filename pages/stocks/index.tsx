@@ -42,20 +42,19 @@ export default Index;
 
 
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
     try {
         const response = await axios.get(`${AppURL}/ads/`);
         return {
             props: {
-                serverStocks: response.data 
+                serverStocks: response.data || [],
             },
         };
     } catch (error) {
         console.error('Ошибка при получении данных о рекламных акциях:', error);
-
         return {
             props: {
-                serverStocks: null,
+                serverStocks: [],
             },
         };
     }

@@ -37,7 +37,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
         const paths = ads.map((ad: { _id: string }) => ({
             params: { id: String(ad._id) }, // Используем _id вместо id
         }));
-
+        
         return {
             paths,
             fallback: false, // Динамическая подгрузка новых страниц
