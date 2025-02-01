@@ -10,41 +10,7 @@ import AdminOrders from '@/components/AdminOrders';
 const Index = () => {
     const [selectType, setSelectType] = useState('Dishes')
     const [isAdmin, setIsAdmin] = useState <boolean>(false)    
-     const checkAdmin = async () => {
-            const token = localStorage.getItem("jwtToken");
-            if (!token) {
-                return;
-            }
-
-            try {
-                const response = await fetch(`${AppURL}/check/admin/`, {
-                    method: 'GET',
-                    headers: {
-                        Authorization: `Bearer ${token}`,
-                    },
-                });
-
-                if (!response.ok) {
-                    const error = await response.json();
-                    throw new Error(error.message || "Ошибка доступа.");
-                }
-                setIsAdmin(true)
-
-            } catch (error) {
-                console.error("Ошибка доступа:", error);
-                //@ts-ignore
-                alert(`Ошибка: ${error.message}`);
-            }
-        };
     
-
-    const onClickHandler = (selectTypeInput: string) => {
-        if(selectTypeInput)
-        setSelectType(selectTypeInput)
-    }
-    useEffect(() => {
-        // checkAdmin()
-    }, [])
    return(
        <div className={styles.AdminPanel}>
             {/* <div className={styles.AdminPanel_title}>Админ панель</div>
