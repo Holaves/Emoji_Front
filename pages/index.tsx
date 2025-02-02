@@ -22,11 +22,17 @@ const Index = () => {
   const [categories, setCategories] = useState <ICategoria[]>([])
   // const { stocks, error } = useTypedSelector(state => state.stock || { stocks: [], error: '' });
   // const { categories } = useTypedSelector(state => state.categoria || { categories: [], error: '' });
-
+  const router = useRouter()
   const [width, setWidth] = useState <number>(1440) 
   const [isAtTop, setIsAtTop] = useState(false);
   const targetRef = useRef<HTMLDivElement>(null);
 
+  useEffect(() => {
+    const { token } = router.query;
+    if (token && typeof token === 'string') {
+      localStorage.setItem('jwtToken', token);
+    }
+  }, []);
   const fetchStocks = async () => {
       try{
           const response = await fetch(`${AppURL}/ads/`, {
@@ -65,7 +71,6 @@ const Index = () => {
     fetchStocks()
   }, [])
 
-  const router = useRouter();
 
   const handleScroll = () => {
     if (targetRef.current) {
