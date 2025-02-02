@@ -26,13 +26,7 @@ const AdminOrders = () => {
     }
    
     const formatDate = (date: Date) => {
-        const formatedDate = date.toLocaleString("ru", {
-            day: "numeric",
-            month: "short",
-            year: "numeric",
-            hour: "numeric",
-            minute: "2-digit"
-        })
+        const formatedDate = date.getMonth() + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes()
         return formatedDate
     }
     const openDeleteModal = (orderId: string) => {
