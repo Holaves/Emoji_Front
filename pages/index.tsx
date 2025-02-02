@@ -32,7 +32,7 @@ const Index = () => {
       const urlParams = new URLSearchParams(window.location.search);
       const token = urlParams.get('token');
       if (token) {
-        localStorage.setItem('token', token);
+        localStorage.setItem('jwtToken', token);
         urlParams.delete('token');
         const newUrl = `${window.location.origin}${window.location.pathname}?${urlParams.toString()}`;
         window.history.replaceState(null, '', newUrl);
