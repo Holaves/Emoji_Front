@@ -11,6 +11,38 @@ const Index = () => {
     const [selectType, setSelectType] = useState('Dishes')
     const [isAdmin, setIsAdmin] = useState <boolean>(false)    
     const onClickHandler = (type: string) => setSelectType(type)
+
+    const checkAdmin = async () => {
+        const token = localStorage.getItem("jwtToken");
+        if (token) {
+        try{
+            const response = await fetch(`${AppURL}/check/admin`, {
+                method: 'GET'
+            });
+  
+            if (!response.ok) {
+                const error = await response.json();
+                throw new Error(error.message || "Ошибка при удалении.");
+            }
+  
+            const data = await response.json();
+            setIsAdmin(data);
+        }
+        catch (error) {
+            console.error("Ошибка при удалении:", error);
+        }
+        }
+    }
+    useEffect(() => {
+        checkAdmin()
+    }, [])
+    if(!isAdmin){
+        return (
+            <div>
+                <h1>403 Forbidden</h1>
+            </div>
+        )
+    }
    return(
        <div className={styles.AdminPanel}>
             <div className={styles.AdminPanel_title}>Админ панель</div>
