@@ -187,6 +187,7 @@ const token = localStorage.getItem('jwtToken');
                         <tr className={styles.subTr}>
                             <td>Номер заказа</td>
                             <td>Адрес</td>
+                            <td>Заказ на:</td>
                             <td>Номер телефона</td>
                             <td>Корзина (открыть)</td>
                             <td onClick={() => handleSort('fullPrice')} style={{ cursor: 'pointer' }}>
@@ -223,11 +224,11 @@ const token = localStorage.getItem('jwtToken');
                                     <td>{item.adress}</td>
                                     <td>{item.dateTime ? item.dateTime : '-'}</td>
                                     <td>{item.phone_number}</td>
-                                    <td>
+                                    <td>    
                                         {item._id}
                                     </td>
                                     
-                                 
+                                    <td onClick={openOrderModal}>Корзина</td>
                                     <td>{item.fullPrice}</td>
                                     <td>{createdAt}</td>
                                     <td>
