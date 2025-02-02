@@ -28,9 +28,15 @@ const Index = () => {
   const targetRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const { token } = router.query;
-    if (token && typeof token === 'string') {
-      localStorage.setItem('jwtToken', token);
+    if (typeof window !== 'undefined') {
+      const urlParams = new URLSearchParams(window.location.search);
+      const token = urlParams.get('token');
+      if (token) {
+        localStorage.setItem('token', token);
+        urlParams.delete('token');
+        const newUrl = `${window.location.origin}${window.location.pathname}?${urlParams.toString()}`;
+        window.history.replaceState(null, '', newUrl);
+      }
     }
   }, []);
   const fetchStocks = async () => {
