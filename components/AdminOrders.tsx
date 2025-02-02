@@ -25,7 +25,16 @@ const AdminOrders = () => {
         
     }
    
-
+    const formatDate = (date: Date) => {
+        const formatedDate = date.toLocaleString("ru", {
+            day: "numeric",
+            month: "short",
+            year: "numeric",
+            hour: "numeric",
+            minute: "2-digit"
+        })
+        return formatedDate
+    }
     const openDeleteModal = (orderId: string) => {
         setOrderToDelete(orderId);
         setIsDeleteModalOpen(true)
@@ -222,13 +231,13 @@ const token = localStorage.getItem('jwtToken');
                                 >
                                     <td>{item.orderIndex}</td>
                                     <td>{item.adress}</td>
-                                    <td>{item.dateTime ? item.dateTime : '-'}</td>
+                                    {/* @ts-ignore */}
+                                    <td>{item.dateTime ? formatDate(item.dateTime) : '-'}</td>
                                     <td>{item.phone_number}</td>
                                     <td>    
                                         {item._id}
                                     </td>
                                     
-                                    <td onClick={openOrderModal}>Корзина</td>
                                     <td>{item.fullPrice}</td>
                                     <td>{createdAt}</td>
                                     <td>
