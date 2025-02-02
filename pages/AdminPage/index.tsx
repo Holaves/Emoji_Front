@@ -18,7 +18,11 @@ const Index = () => {
         if (token) {
         try{
             const response = await fetch(`${AppURL}/check/admin`, {
-                method: 'GET'
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer ${token}`,
+                },
             });
   
             if (!response.ok) {
