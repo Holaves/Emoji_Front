@@ -14,6 +14,7 @@ const Index = () => {
 
     const checkAdmin = async () => {
         const token = localStorage.getItem("jwtToken");
+        console.log(token)
         if (token) {
         try{
             const response = await fetch(`${AppURL}/check/admin`, {
