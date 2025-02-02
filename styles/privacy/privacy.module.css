@@ -2,7 +2,7 @@
   font-size: 32px;
   line-height: 1.2;
   font-weight: bold;
-  color: #111;
+  color: #FFF;
   margin-bottom: 20px;
   font-family: Comfortaa;
 }
@@ -11,7 +11,7 @@
   font-size: 24px;
   line-height: 1.4;
   font-weight: semi-bold;
-  color: #222;
+  color: #FFF;
   font-family: Comfortaa;
   margin-bottom: 15px;
   margin-top: 40px;
@@ -21,7 +21,7 @@
 .privacy_h3 {
   font-size: 16px;
   line-height: 1.8;
-  color: #333;
+  color: #FFF;
   font-family: Comfortaa;
   margin-bottom: 16px;
 }
@@ -29,7 +29,7 @@
 .privacy_p, .privacy_h3 {
   font-size: 16px;
   line-height: 1.8;
-  color: #333;
+  color: #FFF;
   font-family: Comfortaa;
   margin-bottom: 16px;
 }
@@ -85,7 +85,7 @@
   border: 1px solid black;
   font-size: 16px;
   line-height: 1.8;
-  color: #333;
+  color: #FFF;
   font-family: Comfortaa;
   margin-bottom: 16px;
 }
@@ -95,7 +95,7 @@
 .privacy_table tbody tr td ul li {
   font-size: 16px;
   line-height: 1.8;
-  color: #333;
+  color: #FFF;
   font-family: Comfortaa;
   margin-bottom: 16px;
 }/*# sourceMappingURL=privacy.module.css.map */

@@ -173,7 +173,7 @@ const Index = () => {
                         <div className={styles.orderPage_delive_twoBlocks_touched}>
                             <h1 className={styles.orderPageTitle}>Ваш заказ:</h1>
                             <div className={styles.orderPage_input}>
-                                <h3 className={styles.orderPage_subTItle}>Номер:</h3>
+                                <h3 className={styles.orderPage_subTItle}>Номер:*</h3>
                                 <input
                                     type="text"
                                     placeholder='+79001112233'
@@ -182,7 +182,7 @@ const Index = () => {
                                 />
                             </div>
                             <div className={styles.orderPage_input}>
-                                <h3 className={styles.orderPage_subTItle}>Адрес:</h3>
+                                <h3 className={styles.orderPage_subTItle}>Адрес:*</h3>
                                 <input
                                     type="text"
                                     value={adress}
@@ -191,7 +191,7 @@ const Index = () => {
                                
                             </div>
                             <div className={styles.orderPage_input}>
-                                <h3 className={styles.orderPage_subTItle}>Дата и время:</h3>
+                                <h3 className={styles.orderPage_subTItle}>На время:</h3>
                                     <input type="datetime-local" value={dateTime} onChange={(e) => setDateTime(e.target.value)} />
                                 </div>
                             {suggestions.length > 0 && (
@@ -244,7 +244,7 @@ const Index = () => {
                         <div className={styles.orderPage_delive_twoBlocks_touched}>
                             <h1 className={styles.orderPageTitle}>Ваш заказ:</h1>
                             <div className={styles.orderPage_input}>
-                                <h3 className={styles.orderPage_subTItle}>Номер:</h3>
+                                <h3 className={styles.orderPage_subTItle}>Номер:*</h3>
                                 <input
                                     type="text"
                                     placeholder='+79001112233'
@@ -252,6 +252,10 @@ const Index = () => {
                                     onChange={handlePhoneNumberChange}
                                 />
                             </div>
+                            <div className={styles.orderPage_input}>
+                                <h3 className={styles.orderPage_subTItle}>На время:</h3>
+                                    <input type="datetime-local" value={dateTime} onChange={(e) => setDateTime(e.target.value)} />
+                                </div>
                             {suggestions.length > 0 && (
                                     <ul className={styles.suggestionsList}>
                                         {suggestions.map((suggestion, index) => (

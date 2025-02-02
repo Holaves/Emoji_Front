@@ -43,7 +43,8 @@ h1,h2,h3,h4,h5,h6{
     font-family: Poppins;
   }
   body{
-    /* background-color: #111211 !important; */
+    background-color: #111211 !important;
+    color: white
   }
   
   a {
