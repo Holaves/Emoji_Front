@@ -77,7 +77,7 @@ const Footer:FC = () => {
                                     <h3>11:00 – 23:00</h3>
                                 </div>
                             </ModalWindow>
-                            <li><Link href={'https://chat.whatsapp.com/Dc5TsOXY8uy8VZP3TdtTjr'}>Группа с розыгрышами</Link></li>
+                            <li><Link  style={{textDecoration: 'none', color: 'rgb(194, 193, 193)'}} href={'https://chat.whatsapp.com/Dc5TsOXY8uy8VZP3TdtTjr'}>Группа с розыгрышами</Link></li>
                             
                         </ul>
                     </Col>
