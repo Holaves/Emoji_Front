@@ -17,21 +17,21 @@ const CategoriaPage = ({ serverCategoria }: { serverCategoria: ICategoria }) => 
   const [categoria, setCategoria] = useState<ICategoria>(serverCategoria);
   const { categories } = useTypedSelector((state) => state.categoria || { categories: [], error: '' });
   const router = useRouter();
+  console.log(categoria)
+  // useEffect(() => {
+  //   const fetchCategoria = async () => {
+  //     if (router.query.id) {
+  //       try {
+  //         const response: AxiosResponse = await axios.get(`${AppURL}/categories/${router.query.id}`);
+  //         setCategoria(response.data);
+  //       } catch (error) {
+  //         console.error('Ошибка при обновлении данных категории:', error);
+  //       }
+  //     }
+  //   };
 
-  useEffect(() => {
-    const fetchCategoria = async () => {
-      if (router.query.id) {
-        try {
-          const response: AxiosResponse = await axios.get(`${AppURL}/categories/${router.query.id}`);
-          setCategoria(response.data);
-        } catch (error) {
-          console.error('Ошибка при обновлении данных категории:', error);
-        }
-      }
-    };
-
-    fetchCategoria();
-  }, [router.query.id]);
+  //   fetchCategoria();
+  // }, [router.query.id]);
 
   return (
     <MainLayout>
@@ -52,10 +52,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
     const categories = response.data;
 
     // Генерируем пути
-    const paths = categories.map((category: { id: string }) => ({
-      params: { id: category.id.toString() },
+    const paths = categories.map((category: { _id: string }) => ({
+      params: { id: String(category._id) },
     }));
-
     return {
       paths,
       fallback: false, // Позволяет серверу обрабатывать новые пути
@@ -86,7 +85,6 @@ export const getStaticProps = wrapper.getStaticProps(
       props: {
         serverCategoria,
       },
-      revalidate: 60, // Данные обновляются раз в 60 секунд
     };
   }
 );
