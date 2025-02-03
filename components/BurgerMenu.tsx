@@ -27,7 +27,7 @@ const BurgerMenu:FC<BurgerMenuProps> = ({categories, isOpen}) => {
                     <li onClick={() => setMore(!more)}>{!more ? <>Еще категории</> : <>Свернуть категории</>}</li>
                     <li style={{color: 'green'}}>Ватцап</li>
                     <li>Акции</li>
-                    <li><Link href={'https://t.me/EmojiAuth_bot'}></Link>Войти</li>
+                    <li><Link href={'https://t.me/EmojiAuth_bot'}>Войти</Link></li>
                 </ul>
             </div>
        </div>
