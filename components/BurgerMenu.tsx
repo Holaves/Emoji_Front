@@ -1,6 +1,7 @@
 import React, { FC, useState } from 'react';
 import styles from '../styles/BurgerMenu/BurgerMenu.module.scss'
 import { ICategoria } from '@/types/categoria';
+import Link from 'next/link';
 
 interface BurgerMenuProps{
     categories: ICategoria[]
@@ -26,6 +27,7 @@ const BurgerMenu:FC<BurgerMenuProps> = ({categories, isOpen}) => {
                     <li onClick={() => setMore(!more)}>{!more ? <>Еще категории</> : <>Свернуть категории</>}</li>
                     <li style={{color: 'green'}}>Ватцап</li>
                     <li>Акции</li>
+                    <li><Link href={'https://t.me/EmojiAuth_bot'}></Link>Войти</li>
                 </ul>
             </div>
        </div>
