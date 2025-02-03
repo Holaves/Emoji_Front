@@ -77,7 +77,7 @@ const Footer:FC = () => {
                                     <h3>11:00 – 23:00</h3>
                                 </div>
                             </ModalWindow>
-                            <li>Группа с розыгрышами</li>
+                            <li><Link href={'https://chat.whatsapp.com/Dc5TsOXY8uy8VZP3TdtTjr'}>Группа с розыгрышами</Link></li>
                             
                         </ul>
                     </Col>
@@ -94,7 +94,7 @@ const Footer:FC = () => {
                     <div className={styles.Footer_logos}>
                         <div className={styles.logoFull}></div>
                         <div className={styles.f_two}>
-                            <div className={styles.watc}></div>
+                        <Link href={'https://chat.whatsapp.com/DwJaagbhleKBIQNvS26G5L'}><div className={styles.watc}></div></Link>
                             <Link href={'https://vk.com/emojer27'}><div className={styles.vk}></div></Link>
                         </div>
                     </div>

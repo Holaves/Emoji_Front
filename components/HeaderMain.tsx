@@ -166,9 +166,9 @@ const HeaderMain:React.FC<HeaderMainProps> = ({order = false, onChangeDeliveType
                                     <li id={styles.telephone_num}>+7(900)00-000-00</li>
                                 </div>
                                 <div className={styles.headerList_buttons}>
-                                    <div className={styles.headerList_buttons_WhatsApp}>
+                                <Link href={'https://chat.whatsapp.com/DwJaagbhleKBIQNvS26G5L'} className={styles.headerList_buttons_WhatsApp}>
                                         <div className={styles.WhatsApp_Icon_gray}></div>
-                                    </div>
+                                    </Link>
                                     <Link href={'https://vk.com/emojer27'} className={styles.headerList_buttons_Vk}>
                                         <div className={styles.Vk_icon_gray}></div>
                                     </Link>
