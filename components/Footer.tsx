@@ -83,8 +83,8 @@ const Footer:FC = () => {
                     </Col>
                 </Row>
                 <div className={styles.Footer_contacts}>
-                    <h2>+7(900)000-00-00</h2>
-                    <h3>Emoji@gmail.com</h3>
+                    <h2>+7(901)102-22-21</h2>
+                    <h3>emojitemr@gmail.com</h3>
                 </div>
                 <span className={styles.line_f} ></span>
                 <div className={styles.Footer_bot}>
