@@ -65,7 +65,7 @@
 }
 @media (max-width: 610px) {
   .DishCard .DishCard_imgBlock {
-    height: 85px;
+    height: 95px;
   }
 }
 .DishCard .DishCard_imgBlock img {
