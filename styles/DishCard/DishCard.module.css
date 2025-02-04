@@ -42,7 +42,7 @@
 }
 @media (max-width: 480px) {
   .DishCard {
-    width: 120px;
+    width: 130px;
     padding: 5px;
     padding-bottom: 10px;
   }
