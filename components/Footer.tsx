@@ -29,7 +29,7 @@ const Footer:FC = () => {
                         <ul className={styles.Footer_list}>
                             <li className={styles.Footer_subTitle}>Контакты</li>
                             <li><Link style={{textDecoration: 'none', color: 'rgb(194, 193, 193)'}} href={'https://vk.com/emojer27'}>Вконтакте</Link></li>
-                            <li>Ватцап</li>
+                            <li><Link style={{textDecoration: 'none', color: 'rgb(194, 193, 193)'}} href={'https://chat.whatsapp.com/DwJaagbhleKBIQNvS26G5L'}>Ватцап </Link></li>
                         </ul>
                     </Col>
                     <Col>
