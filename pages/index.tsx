@@ -16,6 +16,7 @@ import CategoriesHeader from '@/components/CategoriesHeader';
 import Head from 'next/head';
 import { IStock } from '@/types/stock';
 import { ICategoria } from '@/types/categoria';
+import { Metrika } from '@/components/metrica';
 
 const Index = () => {
   const [stocks, setStocks] = useState <IStock[]>([])
@@ -106,6 +107,7 @@ const Index = () => {
    
    <div style={{ paddingTop: width > 700 ? '100px' : '15px' }}>
        <MainLayout>
+        <Metrika/>
         <Head>
           <title>Эмодзи | Кафе японской и итальянской кухни в Темрюке</title>
           <meta
