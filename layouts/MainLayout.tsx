@@ -57,5 +57,5 @@ const MainLayout: React.FC<MainLayoutProps> = ({children, title, description, ke
 
 export default MainLayout;
 
-export const AppURL: string = `https://holaves-emoji-fb8b.twc1.net`
+export const AppURL: string = `holaves-emoji-3566.twc1.net`
 export const AppName: string = "Emoji"
